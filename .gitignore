@@ -1,0 +1,31 @@
+# 运行时数据（Agent 产物：产品成品、日志、复盘、config 等）——本地业务数据，非开源内容
+# 其中可能含明文账号密码 / token，一并忽略
+docs/
+artifacts/
+
+# node_modules
+node_modules/
+
+# 系统杂物
+.DS_Store
+__pycache__/
+*.pyc
+
+# Claude Code 个人本地配置（机器本地，不提交）
+.claude/settings.local.json
+
+# hook 运行时状态文件（机器本地）
+.claude/.memory-changed-this-session
+.claude/.last-memory-checkpoint
+
+# 临时产物（见 .claude/rules/tmp-dir-for-artifacts.md）
+tmp/
+
+# find-skill 运行时产物（密钥 + 生成的索引/日志，勿提交）
+.claude/skills/find-skill/.env
+.claude/skills/find-skill/cache/
+
+# 本机密钥通用兜底（保留 .env.example）
+.env
+.env.*
+!.env.example
