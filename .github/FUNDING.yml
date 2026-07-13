@@ -1,0 +1,12 @@
+# 这些是 GitHub 支持的赞助平台配置
+# 文档 / Docs: https://docs.github.com/articles/setting-up-your-github-sponsors
+
+# GitHub Sponsors —— 你的账号已开通，Sponsor 按钮会指向 github.com/sponsors/xhqing
+github: xhqing
+
+# 想接入更多赞助渠道时，取消注释并填上用户名 / 链接即可：
+# patreon: # Patreon 用户名
+# ko_fi: # Ko-fi 用户名
+# buy_me_a_coffee: # Buy Me a Coffee 用户名
+# open_collective: # Open Collective 用户名
+# custom: # 自定义赞助链接，例如微信 / 支付宝收款码的页面 URL
