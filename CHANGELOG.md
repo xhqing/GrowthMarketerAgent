@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.0] - 2026-09-14
 
 ### 新增（commit skill 补全项目标配：README_cn.md、VERSION、版权署名段等）
 
