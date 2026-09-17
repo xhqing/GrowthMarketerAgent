@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### 新增（commit skill 补全项目标配：README_cn.md、VERSION、版权署名段等）
+
+- **为什么改**：2026-09-14 `/commit` 后的第 9 步项目标配检测发现缺项——无 README_cn.md 中文版、无 VERSION 文件、英文版缺互链与底部版权署名段、徽章行含 Stars / Last Commit 动态徽章且缺 Version 徽章。
+- **改了什么**（2026-09-14）：新建 `README_cn.md`（与英文版内容对齐）；新建 `VERSION`（1.0.0，取值顺序兜底：无 package.json / manifest / CHANGELOG 实际版本标题）；`README.md` 移除 Stars / Last Commit 动态徽章、补 Version-1.0.0 徽章、加「[简体中文](README_cn.md)」互链、底部 License 段升级为完整版权署名段（All Contributors）；新建 `.commit-cache.md` 检测缓存。另同步清理：本次提交已删除 `.claude/` 下内嵌 skills（anysearch / find-skill）与本地配置，README「内置能力」段待下次内容修订时更新（见 TODO 口径，不由 commit skill 改正文）。
+
 ### 新增（引流素材 SOP：名人视角引流内容 `references/celebrity-lens-sop.md`）
 
 - **为什么改**：用户 2026-09-14 讨论后确定——Agent Team Playbook 的卖点是"能接单的职能团队"，名人是 commodity 而非护城河；故名人不进常驻 Agent，只作 Buzz 引流内容钩子。据此沉淀可执行 SOP。
