@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "hypit": {
+      "source": "hypit-ai/hypit",
+      "sourceType": "github",
+      "skillPath": "skills/hypit/SKILL.md",
+      "computedHash": "af6b1d519754fcec9b6ee8d7806e9e5adee4bcdfd9532133448cbff48e09b4ad"
+    }
+  }
+}

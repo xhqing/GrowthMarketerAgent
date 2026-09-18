@@ -1,5 +1,28 @@
 # Changelog
 
+## [Unreleased]
+
+### 变更（hypit skill 从全局改到本项目项目级安装）
+
+- **为什么改**：用户要求（2026-09-18）hypit skill 不装全局，改装项目级——它是 Buzz 专用能力，随仓库走（clone 后可用），不污染全局环境。
+- **改了什么**（2026-09-18）：`npx skills remove hypit -g -y` 卸载全局（含 `~/.agents/skills/hypit` 与 pi 全局 symlink）；在本项目根 `npx skills add hypit-ai/hypit` 项目级安装到 `.agents/skills/hypit`（pi 原生扫描项目 `.agents/skills/`，Claude Code 得到 `.claude/skills/hypit` 相对 symlink），项目根新增 `skills-lock.json`；同步更新 `references/hypit-trial.md` 的安装位置表述。npm 可执行包 `@hypit/hypit`（机器级命令行工具，非 skill）保持全局安装不动。
+
+### 新增（T1 完成：Hypit 试用评估报告 `references/hypit-trial.md`）
+
+- **为什么改**：TODO **T1**（试用开源项目 Hypit、评估用于引流内容批量生产）已执行完毕，评估结论需要沉淀为正式参考文档供 Buzz 后续内容生产决策。
+- **改了什么**（2026-09-18）：零成本路线全链路实测（装 skill + 可执行 v0.2.5、纯本地 Runtime、官方 chat 例子 8 秒竖屏片 28.7s 出片、换文案变体 20.9s、全程 $0），新建 `references/hypit-trial.md` 记录实测事实、对 Buzz 各渠道的适用形态（纯动效 / 字幕卡 / 聊天叙事）、暂缓形态（真人 / 数字人付费路线）、许可证与版本风险，结论为纳入工具箱作纯动效短视频批量生产线。同步归档 **T1** 至 `TODO-archive.md`（✅已完成），`TODO.md` 活跃条目清空。
+
+### 新增（TODO.md 落地 + 试用 Hypit 待办）
+
+- **为什么改**：用户调研开源项目 Hypit（github.com/hypit-ai/hypit，AI agent 批量克隆爆款视频工具）后决定试用，其批量视频变体能力与 Buzz 引流内容生产对口，按 TODO 管理规范记入待办；项目此前无 TODO.md（缺失标配）。
+- **改了什么**（2026-09-18）：新建 `TODO.md`（含头部分流指引），🟢 绿色节新增 **T1**：试用 Hypit 并评估用于引流内容批量生产，附最快试用路径（`npx skills add hypit-ai/hypit -g` + `/hypit` 指令、纯代码渲染零成本路线）、许可证边界（Apache-2.0 附加条件，自用引流不受限）与版本风险（v0.2.x 迭代快）。
+
+### 新增（接收 Mason→Buzz 建设期交接：成交阵地就绪，引流链接可用）
+
+- **为什么改**：建设期（Mason）完成 Payloadz 上架 + 落地页部署 + GA4 埋点，销售闭环全链路生产环境验证通过；按流水线接力（③ Mason → ④ Buzz），引流期开工前需要正式接收链接资产与引流纪律。
+- **改了什么**（2026-09-18）：新建 `artifacts/handoff.md`（被 gitignore 忽略的交接输入）：资产清单（落地页主推链接 / EN·ZH 购买直链 / GA4 看板）、UTM 约定（utm_source / medium / campaign / content 逐项口径，utm_content 每条引流内容唯一）、引流纪律（open-core 边界第一屏明示；早鸟码未配置前禁提早鸟价；渠道硬约束；product_id 与 campaign_id 双归因标签）、数据自查路径与 purchase 补录延迟说明。
+- **边界**：仅新增交接输入；素材细节指向 Wright 仓《产品说明》；未动本仓任何既有文件。
+
 ## [1.0.0] - 2026-09-14
 
 ### 新增（commit skill 补全项目标配：README_cn.md、VERSION、版权署名段等）
