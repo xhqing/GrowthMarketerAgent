@@ -2,6 +2,31 @@
 
 ## [Unreleased]
 
+### 变更（x-growth skill 触发优化：真实 pi 环境三轮评测，description 微调）
+
+- **为什么改**：用户要求开跑 skill-creator 的 description 触发优化流程，验证 x-growth description 的触发准确率并改进；过程中发现 skill-creator 自带的评测管道（run_loop，基于 `claude -p` + `.claude/commands/` stub）对 pi 环境严重失真，需要换道自建 pi 原生评测。
+- **改了什么**（2026-09-19）：①诊断：诊断实验实锤 skill-creator 管道两处失真——模型先调非 Skill/Read 工具即被判未触发（早退 bug）+ 判定只认读 commands stub，而模型实际主动读的是 `.pi/skills/` 真实文件，导致 should-trigger 全军覆没、5 轮优化全是噪声；②自建 pi 原生评测器（`tmp/x-growth-workspace/pi-trigger-eval.mjs`，用 pi SDK 构造与真实会话同构的环境：同一套 skill 发现注入 available_skills、同模型 zai-coding-cn/glm-5.3、同项目 cwd、只读工具集零副作用、read `.pi/skills/x-growth/` 即判触发、触发即提前中止），20 条查询 ×3 次；③三轮结果：基线 19/20（should-trigger 10/10 全 3/3）→ 第二轮 NOT for 具体化反而把「KOL 邮件」从 1/3 恶化到 3/3（排除项写得越具体越像反向触发器，字面重叠变成强匹配信号）→ 回滚后终态 19/20；④description 终态仅一处强化：NOT for 首条扩为「调研 / 抓取 / 看讨论 / 搜热帖（哪怕目的是为养号找回复目标，获取 X 站内内容一律 agent-reach）」。剩余唯一 FAIL「去 X 上看看评价 + 找值得回复的帖子」为语义双重意图查询的自然摇摆（三轮 2/3→1/3→2/3），非 description 缺陷，接受。
+
+### 新增（X 组织管理视角帖串 `x-thread-company-07`，追加进首波 X 内容包）
+
+- **为什么改**：用户要求写一个「我怎么用 20 个 AI agent 开一家公司」的 X thread，10 节左右、末节引到落地页。经核对，首波内容包里的 D1 首发主力帖串 `x-thread-launch-01` 已是同一题材（20 agents / 唯一人类 CEO / 10 节 / 末节 CTA），且已用过「agent 计划发死渠道 → hook 拦截」同一案例——直接新写会与主力帖串撞车。处理：不覆盖 `x-thread-launch-01`，按**换钩重发版**定位新写一条，入口钩子从「我们交付了产品」换成「这家公司怎么管」，重心从产品叙事移到组织管理（招聘 / 交接 / 绩效 / 裁撤）；两版是否替换 D1 主力由人定，不擅自改发布节奏。
+- **改了什么**（2026-09-19）：①`artifacts/playbook-launch/x.md` 追加第 5 节 `x-thread-company-07`——10 节帖串成品（EN，组织管理视角：公司规模钩子 → 六部门流水线 → 一文件即招聘 → artifacts 交接契约 → 踩坑变规则再变 hook 执法（中段最强干货，第 4 节末预告）→ 绩效以交付契约为准 → 角色按文件裁撤 → 跨底座可移植 → 公开仓库即收据 → open-core 定价 CTA + 开放问题），含四件套（UTM 链接、发布时间窗、发后 30 分钟动作、回复话术储备）与本条过检记录；②`plan.md` utm_content 登记表新增 `x-thread-company-07` 行并标注与 `x-thread-launch-01` 至少隔 3 天。红线照旧：$49 无早鸟、无文件数、open-core 第 10 节明示、链接只指落地页。
+
+### 新增（x-growth skill：X 平台引流变现工艺，装项目级 `.pi/skills/x-growth/`）
+
+- **为什么改**：用户要求根据根目录 `x-algorithm.md` 的推荐算法机制，写一个本项目级的从 X 平台引流变现的 skill——算法情报此前是「知道」状态，缺一层「每条内容都过检」的执行工艺，把机制固化成写帖、发布、养号、质检的标准流程，避免每次做 X 内容时凭印象执行、漏掉外链 / 早鸟价这类高代价红线。
+- **改了什么**（2026-09-19）：新建 `.pi/skills/x-growth/`（SKILL.md 140 行 + references/patterns.md 100 行，按 skill-creator 的 Progressive Disclosure 组织）：①SKILL.md 固化执行层规则——权威源路由（机制详解指根 `x-algorithm.md`、链接资产每次从 `artifacts/handoff.md` 取当前值，skill 不复制 URL 防漂移）、六条铁律（正文零外链、对话钩优先、6 小时生命周期运营、TweepCred 养号、建设性语气、常青层 + Starter Pack 中期目标，每条带 why）、产物契约（内容包四件套：UTM 链接 + 发布时间窗 + 发后 30 分钟动作 + 回复话术储备）、UTM 命名约定、内容红线（$49 / 无早鸟 / open-core / 不编数字 / 不数文件数 / TikTok Gumroad 禁用）、输出前 9 项质检清单；②references/patterns.md 放形态模板——单帖三型（对话钩 / 观点断言 / 算法帖）、干货 thread 节奏设计（吃完成率信号）、重发钩子操作（换钩换形态换 utm_content）、回复区链接 SOP（首条回复预写、作者回应 +75 的优先级）、bio 与置顶常青层、每日养号动作清单。
+
+### 新增（X 推荐算法情报移交：根目录 `x-algorithm.md`）
+
+- **为什么改**：用户要求把 Scout 仓里关于 X 平台开源推荐系统源码（`xai-org/x-algorithm`）的内容移交给 Buzz（引流执行要用算法机制做发帖决策）；该情报此前只在 Scout 仓选品报告 §3.5 里，Buzz 侧无本地依据。
+- **改了什么**（2026-09-19）：新建根目录 `x-algorithm.md`，从 Scout《选品方案 v3》摘出自包含快照：①九条关键机制（互动权重序、外链惩罚、6 小时半衰期、30 分钟 10 回复触发点、TweepCred、情感信号、thread 完成率、主题一致性、长尾判定与 Starter Packs 通道）+ 补充机制细节；②X 算法运营手册六条铁律（链接铁律、发帖节奏、养号纪律、内容形态、常青层、Starter Pack 中期目标）；③算法帖内容钩子与首发草稿；④数字可信度边界。头部标注来源、快照基线（2026-08-13 release）与 trend_id/product_id 可追溯标签；Scout 侧 MEMO M1 持续跟踪机制更新后本文件同步换版。
+
+### 新增（Playbook 上架引流方案 + 七渠道首波内容包，产出 `artifacts/playbook-launch/`）
+
+- **为什么改**：Agent Team Playbook 已上架（Mason 交接：落地页 + Payloadz 双链接 + GA4 就绪，见 `artifacts/handoff.md`），流水线进入④引流期；需要把「怎么引、发什么、怎么归因、什么节奏」落成可执行方案与首波成品文案。
+- **改了什么**（2026-09-19）：新建 `artifacts/playbook-launch/` 四文件——`plan.md`（总方案：核心叙事「meta 证明」、信息屋、渠道矩阵、utm_content 登记表、6 周发布节奏、红线清单、二波选题库）、`x.md`（EN：首发帖串 + 算法帖 / 56 行最小 agent 帖 / DSH 桥接帖）、`instagram-youtube.md`（EN：IG 三帖 + bio 链接、YT 60s Short 脚本 + 长视频大纲）、`china.md`（ZH：小红书两篇笔记、知乎价值先行回答、B 站动态 + 短视频脚本、视频号文案）。全部链接带 UTM（`utm_campaign=playbook-launch`，19 个 utm_content 已分配登记）；红线落死：不提早鸟价（EARLY35 未配置）、不数文件数（12/zip 与落地页 20 files 口径不一，文案一律回避）、open-core 边界每条内容明示、直链仅用于放不下落地页的场景。
+
 ### 新增（Hypit 实战：可口可乐 30s 广告改编百事版，产出 `tmp/pepsi/`）
 
 - **为什么改**：用户要求把 30 秒可口可乐广告（「For Everyone :30」，已下载的 `tmp/ads/`）改成百事可乐版；Hypit 试用评估（见上条）需要一次真实改编验证纯本地路线的完整生产能力。
