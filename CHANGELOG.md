@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+### 新增（Hypit 实战：可口可乐 30s 广告改编百事版，产出 `tmp/pepsi/`）
+
+- **为什么改**：用户要求把 30 秒可口可乐广告（「For Everyone :30」，已下载的 `tmp/ads/`）改成百事可乐版；Hypit 试用评估（见上条）需要一次真实改编验证纯本地路线的完整生产能力。
+- **改了什么**（2026-09-18）：`tmp/pepsi/` 下建标准 Hypit 工程（references/ad 分析档案 + productions/pepsi-30s 创作源码）：① 选色 HSV 红转百事蓝预处理器（保护肤色与白背景，逐帧验证残余红 ≤0.28%）；② 原声 "Coca-Cola"（25.44–27.44s）压至 10% 并以本地 TTS "Pepsi."（Reed 声、音高 +1.12×、RMS 对齐原词 -28 dBFS）替换；③ 17 条跟随旁白的百事蓝字幕（YouTube 字幕轨词级对时）+ 白底百事地球仪尾卡（Wikimedia 2023 SVG）覆盖 24.56s 起的红色尾卡；④ 本地 Runtime 渲染成片 `output/pepsi-for-everyone-30s.mp4`（30s、1280×720、$0）。另：项目 `.gitignore` 补 `tmp/`（临时产物不入库）。
+
+### 变更（video-download skill 补记「VSC 内有声播放扩展不存在」查证结论）
+
+- **为什么改**：用户追问「有没有 VSCE 能在 VSC 里正常播放视频」；需把查证结论沉淀进 skill，防止后续重复搜索死路。
+- **改了什么**（2026-09-18）：skill 的 VSC 专段补记：marketplace 查证（两轮关键词搜索）唯一专用扩展 analytic-signal.preview-mp4 解包源码实锤为 webview `<video>` 方案、同样无声；Simple Browser 同套限制（#329583）；WASM 解码路线无现成扩展；一键外部播放 `open -a QuickTimePlayer <file>`。
+
+### 变更（video-download skill 纠错：VSC 内置预览不支持 AAC，音频验收换道）
+
+- **为什么改**：实测证伪了 skill 初版的「H.264+AAC 全平台通吃（含 VSCode）」表述——最保守的 H.264+AAC 测试文件在 VSC 内置预览里仍无声；读本机 VSC 内置 media-preview 扩展源码（`videoPreview.js` autoplay 时默认 muted）+ 官方 issue（microsoft/vscode#167685 OPEN、#329811 实测产品自带 ffmpeg 缺 `ff_aac_decoder`、#156558 官方确认编解码器许可证裁剪）确认：VSC 预览就是解不出 MP4 里的 AAC，与文件无关、转码救不了，须防止后续再在这个死胡同里排查。
+- **改了什么**（2026-09-18）：`.pi/skills/video-download/SKILL.md` 兼容性表述改为「QuickTime / 微信 / 剪辑软件等常规场景通吃」，新增「VSCode 内置预览听不到任何 MP4 音频」专段（成因 + issue 链接 + QuickTime 不解 AV1 的提醒）；修复配方段补充分流（音轨 opus = 文件问题照旧修；已是 aac 仍无声 = VSC 环境限制，换 QuickTime / `afplay` 验收，不动文件）；速查表同步。
+
+### 新增（video-download skill 沉淀视频下载工艺，装项目级 `.pi/skills/`）
+
+- **为什么改**：为 Buzz 下载 30 秒广告参考素材（Coca-Cola「For Everyone :30」）时踩坑——yt-dlp 默认按画质排序选中 AV1+Opus 流，`--merge-output-format mp4` 只换容器不重编码，Opus 音轨装进 MP4 后 VSC 内置播放器（Chromium 媒体栈）解不出、画面正常但静音（VLC 可放、易掩盖）；用户要求把下载工艺沉淀为 skill 并与 hypit 同策略装项目级（项目专用能力随仓库走、不污染全局）。
+- **改了什么**（2026-09-18）：新建 `.pi/skills/video-download/SKILL.md`：三步标准流程（`ytsearch` + jq 按时长筛候选 → `-S "res:720,vcodec:h264,acodec:aac"` 兼容性优先选流 → ffprobe 验证编码与时长）、Opus-in-MP4 静音成因与修复配方（`ffmpeg -c:v copy -c:a aac -b:a 160k`，视频流无损）、平台边界（B站禁 yt-dlp 走 agent-reach bili-cli；调研/字幕归 agent-reach、视频制作改编归 hypit）。skill 初建于用户级 `~/.pi/agent/skills/`（与 `~/.claude/skills` 同 inode），后按用户要求整体移动到本项目 `.pi/skills/`，用户级已移除。
+
 ### 变更（hypit skill 从全局改到本项目项目级安装）
 
 - **为什么改**：用户要求（2026-09-18）hypit skill 不装全局，改装项目级——它是 Buzz 专用能力，随仓库走（clone 后可用），不污染全局环境。

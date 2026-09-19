@@ -26,3 +26,6 @@ tmp/
 .env
 .env.*
 !.env.example
+
+# 临时产物（AI 工作文件、试验素材）
+tmp/
