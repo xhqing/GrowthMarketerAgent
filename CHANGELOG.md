@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+### 变更（数字口径补动态数字纪律：agent 数量会变，常青资产不写死精确数）
+
+- **为什么改**：用户指出 agent 数量会随组织增减变化，不是恒定 20；bio / 置顶帖是常驻资产，写死精确数字会随组织变动失真，且每次增减 agent 都要改 bio（维护雷）。
+- **改了什么**（2026-09-19）：`plan.md` 数字口径段补三条纪律——①常青资产（bio / 置顶帖）用约数（20-ish）或不写数；②叙事帖用时点快照数字不算漂移（与落地页当前口径一致即可）；③数字真实变动后落地页由 Mason 侧同步，bio 因用约数免跟改。既有帖串文案（含 20 处）不动：帖串是「上个月这次发布」的快照叙事，与落地页当前口径一致。
+
+### 新增（同域短链路由 go/，X 发帖链接换短链）
+
+- **为什么改**：用户反馈 UTM 长链接（127 字符）在 X bio / 帖子里太长且复制易断裂（已发生一次断链事故：链接断在 utm_campaign 值中间，归因丢失）；要求提供短链接。
+- **改了什么**（2026-09-19）：①在落地页部署仓（SiteBuilderAgent 仓 tmp/deploy，即 GitHub agent-team-playbook 仓库）新建 `go/` 同域短链路由——bio/t1/p2/p3/p4 五个目录各一个 index.html，meta refresh + JS 双跳转到带完整 UTM 的落地页（跳转页不埋 GA，避免重复 page_view；归因靠落地页 URL 参数，不变；noindex 防搜索引擎索引短链页）；②GrowthMarketerAgent 仓 `x-post-text.txt` 全部链接换短链（头部附短链↔长链对照与生效条件）；③`plan.md` 登记短链映射表。短链生效条件：agent-team-playbook 仓 push 后 GitHub Pages 部署完成（待用户确认 push）。
+
+### 新增（发帖用即贴纯文本包 `x-post-text.txt`，解决长链接复制断裂问题）
+
+- **为什么改**：用户发帖时遇到链接显示异常——蓝色部分可点击但后面多出黑色文本，典型症状是从聊天窗口/终端复制长 URL 时软折行被复制成真实换行符，X 只把换行前半段识别为链接，后半段变纯文本；被截断的链接会丢失 utm_campaign/utm_content 参数，归因数据作废。需要一个「从文件直接复制」的干净源，避免经手聊天窗口/终端。
+- **改了什么**（2026-09-19）：新建 `artifacts/playbook-launch/x-post-text.txt`——D1 帖串 x-thread-launch-01 全 10 节（去 markdown 标记的即贴版）+ 首条回复 + bio 链接 + D4/D8/D10 三条单帖及其首条回复，链接全部独占一行；头部注明务必从编辑器打开复制、不要从终端选区复制。另：同时补齐 x.md 里 launch thread 缺的发布时间窗与发后动作小节（见下条）。
+
+### 变更（补齐 `x-thread-launch-01` 的四件套小节，D1 首发执行包就绪）
+
+- **为什么改**：用户要启动 X 发帖引流；首波内容包里 launch thread 有成品文案但缺「发布时间窗 + 发后 30 分钟动作 + 首条回复话术」的配套小节（此前只有 company org thread 配齐了四件套），发帖时需临时拼凑、易漏掉置顶与 30 分钟互动 SOP。
+- **改了什么**（2026-09-19）：`artifacts/playbook-launch/x.md` 第 1 节 launch thread 末尾补「发布时间窗（美东 8:00–9:30 AM = 北京 20:00–21:30，2026-09-19 周六晚首发；勿在北京白天发布，30 分钟攒回复触发点需受众在线）」+「发后 30 分钟动作（立即跟首条回复、攒 10 条回复、置顶、24h 回全部评论）」小节，回复话术储备指向文末通用表格。
+
 ### 变更（x-growth skill 触发优化：真实 pi 环境三轮评测，description 微调）
 
 - **为什么改**：用户要求开跑 skill-creator 的 description 触发优化流程，验证 x-growth description 的触发准确率并改进；过程中发现 skill-creator 自带的评测管道（run_loop，基于 `claude -p` + `.claude/commands/` stub）对 pi 环境严重失真，需要换道自建 pi 原生评测。
