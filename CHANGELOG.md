@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+### 新增（TODO 记 T2：配 GA4 读取 service account）
+
+- **为什么改**：D1 帖串发布当晚用户要看 GA4 Realtime，发现 Mason 工具链只有 Measurement Protocol 写入凭证（api_secret），无读取凭证，agent 无法代查，只能用户手动开后台。
+- **改了什么**（2026-09-19）：`TODO.md` 新增 T2（🟢 绿色）——GCP 建 service account → GA4 property G-FRE2DZS751 加为 Viewer → 凭证放本机被忽略路径 → Data API runRealtimeReport 验证拉通，之后每日自查（Realtime / Traffic acquisition 按 utm_content 拆分）agent 可代拉。
+
+### 新增（X profile 背景图 banner，交付用户上传）
+
+- **为什么改**：用户 profile 无 banner，空 banner 是新号特征，损 TweepCred 可信度；置顶帖串把流量引到 profile，banner 是第一眼广告位，空着等于白送。
+- **改了什么**（2026-09-19）：`tmp/banner/` 新建 banner.svg（源）+ banner.png（3000×1000，3:1 比例，X 推荐 1500×500 的高清 2x 版，抗上传压缩）——深蓝→深紫渐变底、左侧极简 org chart 图形（CEO 圆节点→三个 squad 圆角矩形→agent 小点，全圆角无棱角）、右侧人设主文案「The only human in a 20-agent AI company」+ tagline「the org lives in files」；所有内容收在中央安全区（手机端裁两侧）。几何自检：三行文案 x 范围均不与图形区重叠且在裁切容限内。产物在 tmp/（上传 X 用，不进 git）；用户采用后如需永久存档再迁正式目录。
+
+### 变更（D1 帖串 Tweet 9 与 D8 / D10 单帖正文压进 280 字限，补全量字数验证）
+
+- **为什么改**：用户发布 D1 帖串到第 9 帖时被 X 拒发（超 280 限）——成稿时未按 X v2 加权计数验证字数（em dash / 箭头 / box-drawing 等非拉丁字符算 2 权重，按字符数看考似不超、实际超）。全面复测：Tweet 9 实测 311/280 超标；D8（332）、D10（351）同样超标（未到发布日，提前修复）；其余帖串各条、首条回复、D4 均合规。
+- **改了什么**（2026-09-19）：三处正文压缩（核心信息点全部保留）：①Tweet 9 第三行列举压缩（organization layer→org layer；copy-and-fill templates→templates；file-by-file walkthroughs of real repos→repo walkthroughs；cross-harness migration guide→migration guide）→ 246/280；②D8 删语气词与冗余句（That's it. / I run / Five sections 改冒号连接 / constraints→limits）→ 277/280；③D10 删 Hot take: / That's the real moat in 2026 引导句、末句 carry across all of them→ports across them → 274/280。`x.md` 与 `x-post-text.txt` 两处同步；全量 17 条（10 帖 + 4 首条回复 + 3 单帖）复测全部 ≤280。教训：X 非拉丁字符按 2 权重计，后续新内容成稿时必须跑加权计数脚本（非字符数）验证。
+
+### 变更（D1 帖串 Tweet 4 改为 ASCII 组织架构图，兑现 Tweet 1 的 org chart 钩子）
+
+- **为什么改**：用户审稿发现 Tweet 1 结尾钩子承诺「Here's the org chart 🧵」，但帖串里没有真正的架构图——Tweet 4 只有一行流水线文字名单（Scout (research) → ...），读者预期落空，钩子承诺未兑现。且内容包从头未设计配图。经与用户对齐，选 ASCII 纯文本方案（不制图）：改动最小、承诺帖串内当场兑现、与全 campaign 贯穿的 org chart 主题词一致。
+- **改了什么**（2026-09-19）：`x.md` 与 `x-post-text.txt` 两处同步把 Tweet 4 改为 ASCII 树状架构图——CEO（唯一人类）→ Sales squad（Scout→Wright→Mason→Buzz→Vendy→Echo 流水线 + 职能行）→ Infra squad → Trading squad → 4 direct reports，收尾保留「20 agents. One registry.」。职能标注从括号内联改为独立行（sales ops 缩为 sales）；箭头间不留空格压字数，按 X v2 加权计数实测 260 / 280，不超限。
+
 ### 变更（数字口径补动态数字纪律：agent 数量会变，常青资产不写死精确数）
 
 - **为什么改**：用户指出 agent 数量会随组织增减变化，不是恒定 20；bio / 置顶帖是常驻资产，写死精确数字会随组织变动失真，且每次增减 agent 都要改 bio（维护雷）。
