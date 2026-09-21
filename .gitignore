@@ -29,3 +29,8 @@ tmp/
 
 # 临时产物（AI 工作文件、试验素材）
 tmp/
+
+# 本地敏感文件（TODO/CHANGELOG 的 local 分流版，不入公开仓库）
+TODO.local.md
+TODO-archive.local.md
+CHANGELOG.local.md
