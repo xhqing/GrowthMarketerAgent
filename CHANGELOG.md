@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### 新增（安装火山引擎官方 Seedream 图像 skill：byted-ark-seedream-skill）
+
+- **为什么改**：用户需要在本项目使用图像生成 / 编辑能力（营销素材图），此前装过火山方舟 AgentPlan 的 Seedream skill 但只装在 GitComic 项目（`.agents/skills/byted-ark-seedream-skill`，v4.0.0，MIT），项目级 skill 只看本项目目录，本项目加载不到。
+- **改了什么**（2026-09-22）：① 复制真实文件到 `.pi/skills/byted-ark-seedream-skill`（与 hypit / video-download / x-growth 一致的项目级安装模式；零 npm 依赖，纯 Node 标准库）；② `.claude/skills/byted-ark-seedream-skill` 建软链指向 `.pi/` 版，CC 端同用；③ 验证：SKILL.md frontmatter 完好，`node --test` 37 个测试全部通过；④ skill 本身无凭证文件（API key 从环境变量 / OpenClaw 配置读取），可被 git 跟踪，与 GitComic 处理一致。
+
 ### 变更（T5 移出待办：可选项不进清单，全局待办纪律补「待办无可选项」）
 
 - **为什么改**：用户纠正待办纪律——待办均为强烈建议及时处理的内容，可做可不做的自由动作不记录；T5（GitHub 主页 pin 六连，profile README 已承担门面职能后的锦上添花项）属此类。
