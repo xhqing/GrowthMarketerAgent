@@ -1,6 +1,13 @@
 {
   "version": 1,
   "skills": {
+    "byted-ark-seedance-skill": {
+      "source": "skills.volces.com",
+      "sourceUrl": "https://skills.volces.com/skills/volcengine/agentplan",
+      "sourceType": "well-known",
+      "computedHash": "9aed265f32003e867089212d831c1982e369fd766c02d8459770370377ca04eb",
+      "wellKnownDigest": "sha256:97bfafe21dfdd127cb7a040413ac2be5a0a816f75db1d049506dac222b42d6dd"
+    },
     "hypit": {
       "source": "hypit-ai/hypit",
       "sourceType": "github",

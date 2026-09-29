@@ -34,3 +34,12 @@ tmp/
 TODO.local.md
 TODO-archive.local.md
 CHANGELOG.local.md
+
+# 个人头像（本机文件，仓库为公开仓库、不入库）
+assets/avatar/
+
+# 商品图（本机业务素材，不入库）
+assets/listing/
+
+# 业务方案文档（本机文件，不入公开仓库；2026-09-29 决定私有）
+video-monetization/
