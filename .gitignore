@@ -43,3 +43,9 @@ assets/listing/
 
 # 业务方案文档（本机文件，不入公开仓库；2026-09-29 决定私有）
 video-monetization/
+
+# 私有文件备份目录（backup skill，整目录忽略，勿写成员文件名）
+backup/
+
+# skill 运行时状态文件（机器本地；seedance 超时任务队列，脚本随任务读写）
+.agents/skills/byted-ark-seedance-skill/.pending-tasks.json
