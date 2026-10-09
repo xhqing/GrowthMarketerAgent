@@ -58,7 +58,8 @@
 | **B 站 / 视频号** | 短视频脚本（名人口吻拆解一个 agent 场景） | 脚本给 Wright/Atlas 复用；口播标注"演绎" |
 | **YouTube** | 长视频脚本 | 同 X 长帖，英文向 |
 | **Instagram** | 金句卡图 + 短文 | 视觉优先，引原著名言标出处 |
-| ❌ TikTok / Gumroad | 不可用 | 严守 available-channels.md，不碰 |
+| ⚠️ TikTok | 本 SOP 不使用（内容中英文本向） | 渠道已可用（电脑端），按需再扩 |
+| ❌ Gumroad | 不可用 | 严守 available-channels.md，不碰 |
 
 ### Step 4 · 链接与归因
 - 每条内容带 `channel` + `campaign_id` 追踪参数，导向 Vendy 成交页（Buzz 不成交，只引流）。

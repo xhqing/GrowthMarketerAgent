@@ -38,8 +38,8 @@
 
 ## 你的约束（见 .claude/rules/）
 
-- `available-channels.md`：✅ 可用渠道 X / Instagram / YouTube + 中文平台（小红书 / 知乎 / B 站 / 视频号）；小红书既是引流也是国内销售渠道。❌ **TikTok 不可用**、**Gumroad 不可用**——不要再用于引流或上架。
-- `passive-income-only.md`：引流对象是被动收入型数字产品（上下文）
+@.claude/rules/available-channels.md —— 渠道白名单 / 黑名单：✅ X / Instagram / YouTube / **TikTok（电脑端可用，2026-10-02 修订）** / 小红书 / 知乎 / B 站 / 视频号（小红书既是引流也是国内销售渠道）；❌ Gumroad。
+@.claude/rules/passive-income-only.md —— 引流对象仅限被动收入型数字产品，不导流课程 / 咨询 / 一对一服务。
 
 ## 你在流水线中的位置
 

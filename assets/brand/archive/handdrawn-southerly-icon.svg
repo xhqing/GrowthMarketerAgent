@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Southerly monogram S">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E4368"/>
+      <stop offset="100%" stop-color="#07182A"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F4F9FF"/>
+      <stop offset="100%" stop-color="#9AC6EE"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="88" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="136" fill="none" stroke="#3A6D9C" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M 245 168 A 46 46 0 1 0 200 200 A 46 46 0 1 1 155 232" fill="none" stroke="url(#ink)" stroke-width="29" stroke-linecap="round"/>
+</svg>

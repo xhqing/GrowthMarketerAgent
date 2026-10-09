@@ -11,7 +11,7 @@ description: >
   NOT for：X 平台内容调研 / 抓取 / 看讨论 / 搜热帖（用 agent-reach——哪怕目的是为养号找回复目标，
   获取 X 站内内容一律 agent-reach，x-growth 只管「写什么、怎么发、怎么互动」）；算法情报本身的更新跟踪
   （Scout 负责，本 skill 只消费 x-algorithm.md 快照）；非 X 渠道内容（小红书 / 知乎 /
-  B 站 / 视频号 / Instagram / YouTube 无专门 skill，直接做）；TikTok / Gumroad
+  B 站 / 视频号 / Instagram / YouTube / TikTok 无专门 skill，直接做）；Gumroad
   （渠道禁用，不做任何方案）。
 ---
 
@@ -112,7 +112,7 @@ https://<落地页，取自 artifacts/handoff.md>?utm_source=x.com&utm_medium=or
   文案里引用的数字（价格 / 模块数 / 时间承诺）必须与落地页逐一核对一致。
 - **不数文件数**：zip 文件数与落地页口径不一，文案一律回避。
 - **链接只指向落地页 / Payloadz**，直链仅用于平台限制放不下落地页链接的场景。
-- **TikTok / Gumroad 禁用**，不出现在任何方案里。
+- **Gumroad 禁用**，不出现在任何方案里；TikTok 渠道已可用（电脑端），但本 skill 只做 X，不产出 TikTok 方案。
 
 ## 输出前质检清单
 

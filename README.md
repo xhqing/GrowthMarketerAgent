@@ -37,7 +37,7 @@ Produces channel-specific traffic content (X / Instagram / YouTube / Xiaohongshu
 
 ## 约束 / Constraints
 
-渠道：X / IG / YouTube / 小红书 / 知乎 / B 站 / 视频号（**TikTok 不可用**）；小红书同时是国内销售渠道。
+渠道：X / IG / YouTube / **TikTok（电脑端可用）** / 小红书 / 知乎 / B 站 / 视频号；小红书同时是国内销售渠道（Gumroad 不可用）。
 
 ## License & Attribution
 
