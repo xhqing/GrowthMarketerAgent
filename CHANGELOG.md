@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.1] - 2026-10-12
 
 ### 变更（GitComic handoff 素材路径勘误：zip 实际在 logo-fix/ 下、Release 已补发）
 
