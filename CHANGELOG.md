@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### 变更（TODO 登记：CHANGELOG 重复段落清理任务）
+
+- **为什么改**：处理 GitComic handoff 勘误时发现 `CHANGELOG.md` 存在两条 `## [Unreleased]` 标头与成段重复条目（约 24 条「变更」在下半段逐字重复；`git show v1.0.0:CHANGELOG.md` 证实 v1.0.0 时即如此，属历史遗留）。该问题需人工核对后合并去重，按 TODO 纪律登记待办（不当场粗糙去重，避免误删条目）。
+- **改了什么**（2026-10-12）：`TODO.md` 新增 🟡 黄色紧急度节与 **T16**（CHANGELOG 重复段落清理，含现状描述与处理要求）。
+
 ## [1.0.1] - 2026-10-12
 
 ### 变更（GitComic handoff 素材路径勘误：zip 实际在 logo-fix/ 下、Release 已补发）
