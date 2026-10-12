@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.2] - 2026-10-12
 
 ### 变更（TODO 登记：CHANGELOG 重复段落清理任务）
 
