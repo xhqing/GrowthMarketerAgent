@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### 变更（GitComic handoff 素材路径勘误：zip 实际在 logo-fix/ 下、Release 已补发）
+
+- **为什么改**：Wright（ProductProducerAgent）发现本仓 handoff 里 GitComic 投放素材 zip 路径写错（写成了 `tmp/` 根下，实际在 `tmp/logo-fix/` 下）；同时 `zh-v0.2.2` / `en-v0.2.2` Release 已由 Wright 于 2026-10-12 补发有效，领取素材应以 Release 附件为准（Wright 勘误，经 Kit 转达）。
+- **改了什么**（2026-10-12）：`artifacts/handoff.md`「Wright → Buzz（GitComic 国内验证试水）」节：① zip 本机路径修正为 `~/Developer/GitComic/tmp/logo-fix/git-comic-pages-zh-0.2.2.zip`，并标注「本机工作副本、权威来源见 Release 附件」；② Release 行补「2026-10-12 补发有效、附件为素材权威来源」；③ 节首新增 2026-10-12 修订说明。
+
+
+
 ### 变更（commit 敏感扫描白名单扩充：渠道账号标识类确认可公开）
 
 - **为什么改**：2026-10-09 `/add` 预检把新文件 `references/accounts.md` 里的渠道账号标识（TikTok handle、视频号昵称等）列为「需人工过目」块（属账号身份细节类、未经确认）；用户过目后确认可公开，按既有惯例登记白名单，避免以后每批提交都被同一批已确认内容拦下。
