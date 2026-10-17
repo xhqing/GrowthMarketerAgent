@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### 变更（量化 agent 拟人名 Markowitz 改为 Mark：同步名人视角 SOP 引用）
+
+- **为什么改**：用户 2026-10-17 决定把量化 agent 的拟人名 Markowitz 改为 Mark（项目名 `QuantStrategistAgent` 不变），全队统一。
+- **改了什么**（2026-10-17）：`references/celebrity-lens-sop.md` 3 处现行引用（马斯克行、芒格行、回扣产品段）中的「Markowitz」改为「Mark」；本仓无其它现行引用。
+
 ## [1.0.3] - 2026-10-17
 
 ### 变更（AGENTS.md 入口软链接：统一 pi 侧入口）
