@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.4] - 2026-10-17
 
 ### 变更（量化 agent 拟人名 Markowitz 改为 Mark：同步名人视角 SOP 引用）
 
