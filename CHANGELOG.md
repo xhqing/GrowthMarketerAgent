@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### 变更（AGENTS.md 入口软链接：统一 pi 侧入口）
+
+- **为什么改**：2026-10-17 用户决定把「Agent 与子项目」统一为「Agent 进驻子项目」网络——智能体专属文件的实体只放 Agent 项目，子项目根目录以 `AGENTS.md` / `.pi` 两条相对软链接指回负责 Agent（随仓库提交）；同时统一各 Agent 项目以 `AGENTS.md` 作为 pi 侧入口。规则已写入全局 `~/.claude/CLAUDE.md`「团队结构参考」节与 `~/.claude/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-17 修订）」节。
+- **改了什么**（2026-10-17）：新增 `AGENTS.md` 软链接（相对指向 `CLAUDE.md`，由 Kit 按团队统一调整创建），使 pi 在本仓启动时经 `AGENTS.md` 读取同一份项目规则；本仓在注册表「子项目映射」中无登记子项目，无需子项目侧链接。
+
 ## [1.0.2] - 2026-10-12
 
 ### 变更（TODO 登记：CHANGELOG 重复段落清理任务）
