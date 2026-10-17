@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.3] - 2026-10-17
 
 ### 变更（AGENTS.md 入口软链接：统一 pi 侧入口）
 
