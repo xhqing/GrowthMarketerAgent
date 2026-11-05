@@ -6,7 +6,7 @@
 
 | 渠道 | 用途 | 备注 |
 |---|---|---|
-| X / Twitter | 国际向引流与发帖 | 查询走隔离环境（见全局 CLAUDE.md「X / Twitter 查询必须带账号隔离」） |
+| X / Twitter | 国际向引流与发帖 | 查询走隔离环境（见全局 AGENTS.md「X / Twitter 查询必须带账号隔离」） |
 | Instagram | 欧美向视觉内容 | 与 Facebook 同属 Meta，Reels 可一键同步到 FB 页 |
 | YouTube | 长视频 / Shorts | 搜索长尾最值钱 |
 | TikTok | 短视频 | **电脑端（网页版）可用**——上传、数据、评论走 web；移动端不可用（2026-10-02 修订） |
