@@ -36,6 +36,6 @@
 
 ## 版权与署名
 
-- 版权所有 (c) 2026 xhqing，基于 [MIT License](LICENSE.md) 许可。
+- 版权所有 (c) 2026 xhqing <https://github.com/xhqing>，基于 [MIT License](LICENSE.md) 许可。
 - 署名方式：引用或基于本项目构建时，请保留版权声明并注明来源。
 - 项目地址引用：<https://github.com/xhqing/GrowthMarketerAgent>
