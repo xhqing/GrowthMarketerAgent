@@ -1,5 +1,10 @@
 # Changelog
 
+### 变更（引用同步：Hopkins 项目更名为 apply-agent，2026-11-09）
+
+- **为什么改**：Hopkins 的 Agent 项目 2026-11-09 按新命名规定（agent 项目名一律 `<职责>-agent`、全小写）由 `ApplyOptimizerAgent` 更名为 `apply-agent`；本项目 `references/china-outreach.md` 引用了它，名字要同步。
+- **改了什么**：`references/china-outreach.md` 里的 `ApplyOptimizerAgent` → `apply-agent`。
+
 ### 新增（CI 门禁：validate 检查 + main 分支 strict 保护）
 
 - **为什么改**：用户 2026-11-03 立规「新建仓库一律必须 strict 模式的 PR CI」，并要求 28 个不合规的存量仓库统一执行最新标准。本项目此前在 PR 上没有门禁——改动合进 main 全靠人工把关，PR 可以拿旧 main 上通过的检查直接合并，回归防护存在缺口。本次补齐团队要求的「三件套」：PR 上真实跑的 CI 检查 + 挂成 required status check + `required_status_checks.strict = true`。
