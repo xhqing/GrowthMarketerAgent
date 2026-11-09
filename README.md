@@ -40,6 +40,6 @@ Produces channel-specific traffic content (X / Instagram / YouTube / Xiaohongshu
 
 ## License & Attribution
 
-- Copyright (c) 2026 xhqing <https://github.com/xhqing>. Licensed under the [MIT License](LICENSE.md).
+- Copyright (c) 2026 xhqing and contributors. Licensed under the [MIT License](LICENSE.md).
 - Attribution: when referencing or building upon this project, please keep the copyright notice and credit the source.
 - Reference this project at: <https://github.com/xhqing/GrowthMarketerAgent>
